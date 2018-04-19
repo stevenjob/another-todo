@@ -7,6 +7,7 @@ const HeaderInput = styled(TextInput).attrs<{ color?: string }>({
   })
 })`
   line-height: 1.4rem;
+  margin-left: 0.5rem;
 `;
 
 export default HeaderInput;

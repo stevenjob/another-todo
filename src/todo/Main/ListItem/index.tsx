@@ -4,11 +4,12 @@ import ItemCheckbox from './ItemCheckbox';
 import Item from './Item';
 import ItemLabel from './ItemLabel';
 import ItemEditInput from './ItemEditInput';
+import DeleteButton from './DeleteButton';
 
 export interface ListItemProps {
   todo: Todo;
   updateTodo: (todo: Todo) => any;
-  deleteTodo: (id: string) => any;
+  removeTodo: (id: string) => any;
   index: number;
 }
 
@@ -34,6 +35,11 @@ class ListItem extends React.PureComponent<ListItemProps, ListItemState> {
     this.setState({ isEditing: false });
   };
 
+  handleDeleteClick = () => {
+    const { todo, removeTodo } = this.props;
+    removeTodo(todo.id);
+  };
+
   render() {
     const { text, isDone, id } = this.props.todo;
     return (
@@ -54,6 +60,7 @@ class ListItem extends React.PureComponent<ListItemProps, ListItemState> {
             <ItemLabel onDoubleClick={this.handleDoubleClick} isDone={isDone}>
               {text}
             </ItemLabel>
+            <DeleteButton onClick={this.handleDeleteClick} />
           </>
         )}
       </Item>

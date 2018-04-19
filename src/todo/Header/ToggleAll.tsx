@@ -7,7 +7,14 @@ export interface ToggleAllProps {
   onChange: () => void;
 }
 
-const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
+const ToggleInput = styled.input.attrs({
+  type: 'checkbox',
+  style: (props: any) => ({
+    color: props.checked
+      ? props.theme.primary
+      : lighten(0.6, props.theme.primary)
+  })
+})`
   text-align: center;
   border: none;
   width: 4rem;
@@ -18,11 +25,6 @@ const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
   flex-direction: column;
   outline: none;
   &:before {
-    color: ${props => {
-      return props.checked
-        ? props.theme.primary
-        : lighten(0.8, props.theme.primary);
-    }};
     content: '❯';
     font-size: 2.2rem;
     justify-self: center;

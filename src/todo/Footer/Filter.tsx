@@ -12,9 +12,16 @@ const FilterItem = styled.li`
   display: inline;
 `;
 
-const FilterLink = styled.a.attrs<{ selected: boolean }>({})`
-  border-color: ${props =>
-    props.selected ? desaturate(0.2, props.theme.secondary) : 'transparent'};
+const FilterLink = styled.a.attrs<{
+  selected: boolean;
+  'border-color'?: string;
+}>({
+  style: (props: any) => ({
+    borderColor: props.selected
+      ? desaturate(0.2, props.theme.secondary)
+      : 'transparent'
+  })
+})`
   margin: 0.3rem;
   padding: 0.3rem 0.7rem;
   text-decoration: none;

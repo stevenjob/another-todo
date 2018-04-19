@@ -2,7 +2,6 @@ import TextInput from 'src/todo/TextInput';
 import styled from 'styled-components';
 
 const ItemEditInput = styled(TextInput)`
-  color: ${props => props.theme.primary};
   padding-left: 6rem;
   height: 100%;
   font-size: 2.4rem;

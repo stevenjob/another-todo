@@ -22,7 +22,7 @@ function* loggerSaga(action: any): any {
 
 function* themeSaga(action: any): any {
   while (true) {
-    yield call(delay, 10000);
+    yield call(delay, 50000);
     const oldTheme = yield select(getTodoTheme);
     const newTheme = getNextRandomTheme(oldTheme);
     yield put(updateTodoTheme(newTheme));

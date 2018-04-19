@@ -27,7 +27,7 @@ class Header extends React.Component<HeaderProps, {}> {
     return (
       <HeaderWrapper>
         <ToggleAll checked={allDone} onChange={this.handleCheckboxChange} />
-        <HeaderInput placeholder={placeholder} onSave={onSave} isNewTodo />;
+        <HeaderInput placeholder={placeholder} onSave={onSave} isNewTodo />
       </HeaderWrapper>
     );
   }

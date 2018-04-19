@@ -6,12 +6,17 @@ import styled, { ThemeProvider } from 'styled-components';
 import TodoThemeModel from './TodoThemeModel';
 import { lighten } from 'polished';
 
-const TodoWrapper = styled.div`
-  background-color: ${(props: any) => props.theme.background};
+const TodoWrapper = styled.div.attrs<{}>({
+  style: (props: any) => ({
+    backgroundColor: props.theme.background,
+    borderColor: lighten(0.3, props.theme.secondary)
+  })
+})`
   min-width: 55rem;
   margin: 0 auto;
   max-width: 70rem;
-  border: 0.1rem solid ${(props: any) => lighten(0.3, props.theme.secondary)};
+  border-style: solid;
+  border-radius: 0.1rem;
   position: relative;
 `;
 
