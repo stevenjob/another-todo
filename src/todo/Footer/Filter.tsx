@@ -1,7 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { desaturate } from 'polished';
-
 export interface FilterProps {
   selected: boolean;
   setFilter: (filter: string) => void;
@@ -14,12 +12,9 @@ const FilterItem = styled.li`
 
 const FilterLink = styled.a.attrs<{
   selected: boolean;
-  'border-color'?: string;
 }>({
   style: (props: any) => ({
-    borderColor: props.selected
-      ? desaturate(0.2, props.theme.secondary)
-      : 'transparent'
+    borderColor: props.selected ? props.theme.secondary : 'transparent'
   })
 })`
   margin: 0.3rem;

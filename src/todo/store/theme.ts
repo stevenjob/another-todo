@@ -47,8 +47,16 @@ const todoThemeReducer = createReducer<
   }
 );
 
+const generateFullTheme = (theme: TodoThemeModel) => {
+  return {
+    ...theme,
+    lightSecondary: lighten(0.3, theme.secondary),
+    lightPrimary: lighten(0.6, theme.primary)
+  };
+};
+
 export const getTodoTheme = (state: StoreState): TodoThemeModel => {
-  return state.todos.theme;
+  return generateFullTheme(state.todos.theme);
 };
 
 export default todoThemeReducer;

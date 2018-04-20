@@ -4,12 +4,11 @@ import Main from './Main';
 import Footer from './Footer';
 import styled, { ThemeProvider } from 'styled-components';
 import TodoThemeModel from './TodoThemeModel';
-import { lighten } from 'polished';
 
 const TodoWrapper = styled.div.attrs<{}>({
   style: (props: any) => ({
     backgroundColor: props.theme.background,
-    borderColor: lighten(0.3, props.theme.secondary)
+    borderColor: props.theme.lightSecondary
   })
 })`
   min-width: 55rem;
@@ -25,13 +24,14 @@ interface TodoProps {
   theme: TodoThemeModel;
 }
 
-class Todo extends React.Component<TodoProps, {}> {
+class Todo extends React.PureComponent<TodoProps, {}> {
   constructor(props: TodoProps) {
     super(props);
     props.startTodoThemeChange();
   }
 
   render() {
+    console.log('TODO');
     return (
       <ThemeProvider theme={this.props.theme}>
         <TodoWrapper>

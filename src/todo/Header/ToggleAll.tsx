@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { lighten } from 'polished';
 
 export interface ToggleAllProps {
   checked: boolean;
@@ -10,9 +9,7 @@ export interface ToggleAllProps {
 const ToggleInput = styled.input.attrs({
   type: 'checkbox',
   style: (props: any) => ({
-    color: props.checked
-      ? props.theme.primary
-      : lighten(0.6, props.theme.primary)
+    color: props.checked ? props.theme.primary : props.theme.lightPrimary
   })
 })`
   text-align: center;

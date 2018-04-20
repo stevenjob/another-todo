@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { lighten } from 'polished';
 
 export interface TextInputProps {
   placeholder: string;
@@ -17,7 +16,7 @@ export interface TextInputState {
 const StyledInput = styled.input.attrs<{ '--placeholderColor'?: string }>({
   type: 'text',
   style: (props: any) => ({
-    '--placeholderColor': lighten(0.6, props.theme.primary),
+    '--placeholderColor': props.theme.lightPrimary,
     color: props.theme.primary
   })
 })`
